@@ -1,0 +1,33 @@
+.ControlPanel {
+  height: 40px;
+  width: 100%;
+  text-align: center;
+}
+
+.RangeSelector {
+  height: 30px;
+  width: 100%;
+  font-size: 20px;
+  line-height: 40px;
+  padding-bottom: 10px;
+  background-color: orange;
+}
+
+.RangeButton {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: Transparent;
+  border: none;
+  display: inline-block;
+  height: 100%;
+  padding-bottom: 10px;
+
+}
+
+.RangeButton.Up {
+  background-image: url(images/up.png);
+}
+
+.RangeButton.Down {
+  background-image: url(images/down.png);
+}

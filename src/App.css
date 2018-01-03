@@ -1,0 +1,13 @@
+.Numberslot {
+  float: left;
+}
+
+.Nounslot {
+  float: left;
+}
+
+.Flashcard {
+  background-color: red;
+  font-size: large;
+  padding: 50px;
+}
