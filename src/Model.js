@@ -25,5 +25,15 @@ var CounterTypes = [
     kanji: "匹",
     hiragana: "ひき",
   },
+  {
+    english: "Age",
+    kanji: "歳",
+    hiragana: "さい",
+  },
+  {
+    english: "Small (often round) objects",
+    kanji: "個",
+    hiragana: "こ",
+  }
 ];
 export default CounterTypes;

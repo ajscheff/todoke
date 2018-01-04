@@ -11,6 +11,7 @@ class CounterTypesSelector extends Component {
 
   handleChange() {
     var st = this.interpretState();
+    this.setState(st);
     this.props.onChange(st);
   }
 
@@ -27,7 +28,6 @@ class CounterTypesSelector extends Component {
       }
     }
     var newState = {active: activeList};
-    this.setState(newState);
     return newState;
   }
 

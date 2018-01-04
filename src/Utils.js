@@ -23,7 +23,7 @@ function hFor09(number) {
     case 9:
         return "きゅう"
     default:
-        return "DEFAUltCSAWTE"
+        return "DEFAULT"
   }
 }
 

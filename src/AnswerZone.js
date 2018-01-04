@@ -5,31 +5,40 @@ class AnswerZone extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {flipped: false, answer: props.answer};
+    this.state = {flippedAns: false, flippedDesc: false, answer: props.answer, counterDesc: props.desc};
   }
 
   componentWillReceiveProps(nextProps){
-    this.setState({answer:nextProps.answer});
+    this.setState({answer:nextProps.answer, counterDesc: nextProps.desc});
   }
   
-
-  mouseOut() {
-    this.setState({flipped: false});
+  mouseOutAnswer() {
+    this.setState({flippedAns: false});
   }
   
-  mouseOver() {
-    this.setState({flipped: true});
+  mouseOverAnswer() {
+    this.setState({flippedAns: true});
   }
 
+  mouseOutDesc() {
+    this.setState({flippedDesc: false});
+  }
+  
+  mouseOverDesc() {
+    this.setState({flippedDesc: true});
+  }
 
 
   render() {
-    var answerText = this.state.flipped ? this.state.answer : ""
-    console.log(answerText);
+    var answerText = this.state.flippedAns ? this.state.answer : "Hover for answer";
+    var descText = this.state.flippedDesc ? this.state.counterDesc : "Hover for counter description";
     return (
-      <div className="AnswerZone" onMouseOut={() => this.mouseOut()} onMouseOver={() => this.mouseOver()}>
-        <div className="AnswerZoneAnswer">
+      <div className="AnswerZone">
+        <div className="AnswerZoneAnswer" onMouseOut={() => this.mouseOutAnswer()} onMouseOver={() => this.mouseOverAnswer()}>
           {answerText}
+        </div>
+        <div className="AnswerZoneCounterDesc" onMouseOut={() => this.mouseOutDesc()} onMouseOver={() => this.mouseOverDesc()}>
+          {descText}
         </div>
       </div>
     );
