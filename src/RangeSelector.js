@@ -5,7 +5,7 @@ class RangeSelector extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {minnum: 0, maxnum: 20};
+    this.state = {minnum: 1, maxnum: 20};
   }
 
   handleRangeMinDown() {
@@ -48,16 +48,17 @@ class RangeSelector extends Component {
   }
 
   render() {
-
+    let minTxt = Number.isNaN(this.state.minnum) ? "" : this.state.minnum;
     let minInput = (
       <div className="RangeInput">
-        <input type="text" size="4" value={this.state.minnum} onChange={() => this.handleInputChange()} ref="minRangeInput" />
+        <input type="text" size="4" value={minTxt} onChange={() => this.handleInputChange()} ref="minRangeInput" />
       </div>
     );
 
+    let maxTxt = Number.isNaN(this.state.maxnum) ? "" : this.state.maxnum;
     let maxInput = (
       <div className="RangeInput">
-        <input type="text" size="4" value={this.state.maxnum} onChange={() => this.handleInputChange()} ref="maxRangeInput" />
+        <input type="text" size="4" value={maxTxt} onChange={() => this.handleInputChange()} ref="maxRangeInput" />
       </div>
     );
 

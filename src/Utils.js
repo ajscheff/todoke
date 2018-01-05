@@ -39,6 +39,9 @@ function hiraganaForInt(number) {
 }
 
 function getAnswer(number, counterType) {
+  if (number in CounterTypes[counterType].exceptions) {
+    return CounterTypes[counterType].exceptions[number] + " (exception)";
+  }
   return hiraganaForInt(number) + " " + CounterTypes[counterType].hiragana;
 }
 

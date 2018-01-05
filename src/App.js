@@ -30,7 +30,7 @@ class App extends Component {
             {counterType}
           </div>
         </div>
-        <ControlPanel minnum="0" maxnum="20" onRegen={(params) => {this.regenCallback(params);}}/>
+        <ControlPanel minnum="1" maxnum="20" onRegen={(params) => {this.regenCallback(params);}}/>
       </div>
     );
   }

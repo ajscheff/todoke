@@ -18,8 +18,6 @@ class ControlPanel extends Component {
   }
 
   getNumber() {
-    console.log(this.state.minnum);
-    console.log(this.state.maxnum);
     return Math.floor((Math.random() * (this.state.maxnum - this.state.minnum + 1)) + this.state.minnum);
   }
 
@@ -29,14 +27,22 @@ class ControlPanel extends Component {
     return index;
   }
 
-  handleRegen() {
+  getNewParams() {
     let num = this.getNumber();
-    console.log(num);
     let ct = this.getCounterType();
-    let ans = getAnswer(num, ct);
-    let params = {num:num, counterType:ct, ans:ans};
-    this.props.onRegen(params);
-    this.setState(params)
+    return {num:num, counterType:ct};
+  }
+
+  handleRegen() {
+    let newParams = this.getNewParams();
+    while (newParams.num === this.state.num && newParams.counterType === this.state.counterType) {
+      newParams = this.getNewParams()
+    }
+
+    newParams.ans = getAnswer(newParams.num, newParams.counterType);
+
+    this.props.onRegen(newParams);
+    this.setState(newParams)
   }
 
   typesChanged(params) {
