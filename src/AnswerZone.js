@@ -13,19 +13,39 @@ class AnswerZone extends Component {
   }
   
   mouseOutAnswer() {
-    this.setState({flippedAns: false});
+    this.setState((prevState, props) => {
+      return {flippedAns: false};
+    });
   }
   
   mouseOverAnswer() {
-    this.setState({flippedAns: true});
+    this.setState((prevState, props) => {
+      return {flippedAns: true};
+    });
   }
 
   mouseOutDesc() {
-    this.setState({flippedDesc: false});
+    this.setState((prevState, props) => {
+      return {flippedDesc: false};
+    });
   }
   
   mouseOverDesc() {
-    this.setState({flippedDesc: true});
+    this.setState((prevState, props) => {
+      return {flippedDesc: true};
+    });
+  }
+
+  mouseClickAnswer() {
+    this.setState((prevState, props) => {
+      return {flippedAns: !prevState.flippedAns};
+    });
+  }
+
+  mouseClickDesc() {
+    this.setState((prevState, props) => {
+      return {flippedAns: !prevState.flippedDesc};
+    });
   }
 
 
@@ -34,10 +54,10 @@ class AnswerZone extends Component {
     var descText = this.state.flippedDesc ? this.state.counterDesc : "Hover for counter description";
     return (
       <div className="AnswerZone">
-        <div className="AnswerZoneAnswer" onMouseOut={() => this.mouseOutAnswer()} onMouseOver={() => this.mouseOverAnswer()}>
+        <div className="AnswerZoneAnswer" onClick={() => this.mouseClickAnswer()} onMouseOut={() => this.mouseOutAnswer()} onMouseOver={() => this.mouseOverAnswer()}>
           {answerText}
         </div>
-        <div className="AnswerZoneCounterDesc" onMouseOut={() => this.mouseOutDesc()} onMouseOver={() => this.mouseOverDesc()}>
+        <div className="AnswerZoneCounterDesc" onClick={() => this.mouseClickDesc()} onMouseOut={() => this.mouseOutDesc()} onMouseOver={() => this.mouseOverDesc()}>
           {descText}
         </div>
       </div>
