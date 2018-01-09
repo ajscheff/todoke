@@ -65,14 +65,8 @@ class RangeSelector extends Component {
     return (
       <div className="RangeSelector">
           Number Range:
-          <button className="RangeButton Down" onClick={() => this.handleRangeMinDown()} />
-          {this.state.minnum}
-          <button className="RangeButton Up" onClick={() => this.handleRangeMinUp()} />
-          -
-          <button className="RangeButton Down" onClick={() => this.handleRangeMaxDown()} />
-          {this.state.maxnum}
-          <button className="RangeButton Up" onClick={() => this.handleRangeMaxUp()} />
           {minInput}
+          -
           {maxInput}
       </div>
     );
